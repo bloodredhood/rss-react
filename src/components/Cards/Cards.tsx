@@ -2,6 +2,7 @@ import React, { Component, CSSProperties } from 'react';
 import Card from './Card/Card';
 import { GridLoader } from 'react-spinners';
 import './Cards.css';
+import axios from 'axios';
 
 export interface ProductI {
   id: string;
@@ -29,16 +30,15 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
     };
   }
 
+  getCards = async () => {
+    const response = await axios.get('../../../data.json');
+    setTimeout(() => {
+      this.setState({ data: response.data.product, isLoading: false });
+    }, 1000);
+  };
+
   componentDidMount(): void {
-    fetch('../../../data.json')
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        setTimeout(() => {
-          //timeout for show how loader works until data loading
-          this.setState({ data: data.product, isLoading: false });
-        }, 1000);
-      });
+    this.getCards();
   }
 
   render() {
@@ -52,7 +52,7 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
         data-testid="loader"
       />
     ) : (
-      <div className="cardsWrap">
+      <div className="cardsWrap" data-testid="cards">
         {this.state.data.map((el: ProductI, idx: number) => (
           <Card
             key={idx}
