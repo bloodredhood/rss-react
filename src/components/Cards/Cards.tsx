@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, CSSProperties } from 'react';
 import Card from './Card/Card';
+import { GridLoader } from 'react-spinners';
 import './Cards.css';
 
 export interface ProductI {
@@ -14,26 +15,43 @@ export interface ProductI {
   image: string;
 }
 
-class Cards extends Component<object, { data: Array<ProductI> }> {
+const override: CSSProperties = {
+  marginTop: '30vh',
+};
+
+class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolean }> {
   constructor(props: object) {
     super(props);
 
     this.state = {
       data: [],
+      isLoading: true,
     };
   }
 
   componentDidMount(): void {
-    fetch('../../../public/data.json')
+    fetch('../../../data.json')
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);
-        this.setState({ data: data.product });
+        setTimeout(() => {
+          //timeout for show how loader works until data loading
+          this.setState({ data: data.product, isLoading: false });
+        }, 1000);
       });
   }
 
   render() {
-    return (
+    return this.state.data.length === 0 ? (
+      <GridLoader
+        color="#004d99"
+        loading={this.state.isLoading}
+        cssOverride={override}
+        size={30}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    ) : (
       <div className="cardsWrap">
         {this.state.data.map((el: ProductI, idx: number) => (
           <Card

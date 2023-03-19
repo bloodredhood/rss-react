@@ -11,14 +11,19 @@
   background-color: rgb(255, 255, 255);
 }
 
-.cardHovered {
+.card:hover {
   box-shadow: 3px 3px 20px black;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 
 .head {
   font-size: 25px;
   font-weight: bolder;
+  cursor: pointer;
+}
+
+.head:hover {
+  text-decoration: underline;
 }
 
 .body {
@@ -80,19 +85,4 @@
 .price {
   font-weight: bold;
   font-size: 20px;
-}
-
-.moreInfoButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  width: 100px;
-  border-radius: 5px;
-  font-size: 17px;
-  font-weight: bold;
-  color: white;
-  background-color: #fd1000;
-  cursor: pointer;
-  user-select: none;
 }

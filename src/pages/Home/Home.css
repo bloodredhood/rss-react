@@ -1,4 +1,5 @@
 .home {
   max-width: 1280px;
+  min-height: 100vh;
   background-color: #d4d4d4;
 }
