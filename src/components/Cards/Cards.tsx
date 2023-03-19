@@ -2,7 +2,7 @@ import React, { Component, CSSProperties } from 'react';
 import Card from './Card/Card';
 import { GridLoader } from 'react-spinners';
 import './Cards.css';
-import axios from 'axios';
+import cards from '../../data.json';
 
 export interface ProductI {
   id: string;
@@ -24,21 +24,11 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
   constructor(props: object) {
     super(props);
 
+    console.log(cards.product);
     this.state = {
-      data: [],
-      isLoading: true,
+      data: cards.product,
+      isLoading: false,
     };
-  }
-
-  getCards = async () => {
-    const response = await axios.get('../../../data.json');
-    setTimeout(() => {
-      this.setState({ data: response.data.product, isLoading: false });
-    }, 1000);
-  };
-
-  componentDidMount(): void {
-    this.getCards();
   }
 
   render() {

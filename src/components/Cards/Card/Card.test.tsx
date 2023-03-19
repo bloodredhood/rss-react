@@ -29,6 +29,7 @@ it('should have processor', () => {
       image={mockCard.image}
     />
   );
-  const message = screen.getByText('processor');
-  expect(message).toBeInTheDocument();
+
+  expect(screen.getByText(mockCard.processor)).toBeInTheDocument();
+  expect(screen.getByText(mockCard.ram)).toBeInTheDocument();
 });
