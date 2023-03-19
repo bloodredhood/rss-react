@@ -1,0 +1,98 @@
+.card {
+  height: 650px;
+  width: 320px;
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+.cardHovered {
+  box-shadow: 3px 3px 20px black;
+  transition: 0.4s;
+}
+
+.head {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.imageWrapper {
+  margin-bottom:15px;
+}
+
+.imageWrapper img{
+  max-width: 100%;
+}
+
+.bodyChar {
+  display: flex;
+  flex-direction: column;
+}
+
+.charItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.charItemStatic {
+  color: rgb(94, 94, 94);
+  font-size: 15px;
+}
+
+.charItemDynamic {
+  font-size: 15px;
+}
+
+.cardFootWrapper {
+  width: 100%;
+}
+
+.cardFoot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.availible {
+  font-size: 17px;
+  font-weight: bold;
+  color: green;
+}
+
+.unavailible {
+  font-size: 17px;
+  font-weight: bold;
+  color: red;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.moreInfoButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  background-color: #fd1000;
+  cursor: pointer;
+  user-select: none;
+}
