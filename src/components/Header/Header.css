@@ -45,3 +45,8 @@
 .active:hover {
   color: black;
 }
+
+.activePage {
+  margin-left: 50px;
+  color: black;
+}

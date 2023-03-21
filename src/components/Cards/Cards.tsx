@@ -24,7 +24,6 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
   constructor(props: object) {
     super(props);
 
-    console.log(cards.product);
     this.state = {
       data: cards.product,
       isLoading: false,
