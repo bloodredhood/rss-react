@@ -1,10 +1,14 @@
+import { withRouter } from '../../HOCs/withRouter';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
-  const location = useLocation();
+interface WithRouterProps {
+  location: ReturnType<typeof useLocation>;
+}
 
+function Header({ location }: WithRouterProps) {
+  const localPath = location?.pathname.slice(1);
   return (
     <div className="header">
       <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/">
@@ -13,11 +17,9 @@ const Header = () => {
       <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/about">
         About us
       </NavLink>
-      <div className="activePage">
-        Active page: {location.pathname === '/' ? 'main' : location.pathname.slice(1)}
-      </div>
+      <div className="activePage">Active page: {localPath === '' ? 'main' : localPath}</div>
     </div>
   );
-};
+}
 
-export default Header;
+export default withRouter(Header);
