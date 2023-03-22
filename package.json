@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "lint": "eslint --ext .ts,.tsx src",
+    "lint:fix": "eslint --ext .ts,.tsx src --fix",
+    "test": "vitest",
+    "coverage": "vitest --coverage"
   },
   "husky": {
     "hooks": {
