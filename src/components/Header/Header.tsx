@@ -10,7 +10,7 @@ interface WithRouterProps {
 function Header({ location }: WithRouterProps) {
   const localPath = location?.pathname.slice(1);
   return (
-    <div className="header">
+    <header className="header">
       <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/">
         Main
       </NavLink>
@@ -18,7 +18,7 @@ function Header({ location }: WithRouterProps) {
         About us
       </NavLink>
       <div className="activePage">Active page: {localPath === '' ? 'main' : localPath}</div>
-    </div>
+    </header>
   );
 }
 
