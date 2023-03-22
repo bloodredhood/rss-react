@@ -10,11 +10,3 @@ describe('Cards', () => {
     expect(cards).toBeInTheDocument();
   });
 });
-
-// describe('Spinner', () => {
-//   it('shows spinner when data loading', async () => {
-//     render(<Cards />);
-//     const spinner = await screen.findByTestId('loader');
-//     expect(spinner).toBeInTheDocument();
-//   });
-// });
