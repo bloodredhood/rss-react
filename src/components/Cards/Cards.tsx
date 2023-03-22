@@ -2,19 +2,8 @@ import React, { Component, CSSProperties } from 'react';
 import Card from './Card/Card';
 import { GridLoader } from 'react-spinners';
 import './Cards.css';
-import cards from '../../data.json';
-
-export interface ProductI {
-  id: string;
-  name: string;
-  processor: string;
-  ram: string;
-  disk: string;
-  graphics: string;
-  isAvailible: boolean;
-  price: number;
-  image: string;
-}
+import product from '../../data.js';
+import { ProductI } from '../../data.js';
 
 const override: CSSProperties = {
   marginTop: '30vh',
@@ -25,7 +14,7 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
     super(props);
 
     this.state = {
-      data: cards.product,
+      data: product,
       isLoading: false,
     };
   }
