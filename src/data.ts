@@ -12,8 +12,10 @@ export interface ProductI {
   disk: string;
   graphics: string;
   isAvailible: boolean;
-  price: number;
+  price: string;
+  type: string;
   image: string;
+  date: string;
 }
 
 const product: Array<ProductI> = [
@@ -25,8 +27,10 @@ const product: Array<ProductI> = [
     disk: '512 GB SSD',
     graphics: 'NVIDIA GeForce GTX 1660 Super',
     isAvailible: false,
-    price: 3999,
+    price: '3999',
+    type: 'PC',
     image: image1,
+    date: '2020-02-15',
   },
   {
     id: '2',
@@ -36,8 +40,10 @@ const product: Array<ProductI> = [
     disk: '1000 GB HDD + 500GB SSD',
     graphics: 'AMD Radeon RX 6600 XT',
     isAvailible: true,
-    price: 6299,
+    price: '6299',
+    type: 'PC',
     image: image2,
+    date: '2020-03-18',
   },
   {
     id: '3',
@@ -47,8 +53,10 @@ const product: Array<ProductI> = [
     disk: '1000 GB HDD + 500GB SSD',
     graphics: 'NVIDIA GeForce RTX 3060',
     isAvailible: true,
-    price: 5625,
+    price: '5625',
+    type: 'PC',
     image: image3,
+    date: '2020-04-08',
   },
   {
     id: '4',
@@ -58,8 +66,10 @@ const product: Array<ProductI> = [
     disk: '512 GB SSD',
     graphics: 'NVIDIA GeForce GTX 1650',
     isAvailible: false,
-    price: 4499,
+    price: '4499',
+    type: 'PC',
     image: image4,
+    date: '2020-05-28',
   },
   {
     id: '5',
@@ -69,8 +79,10 @@ const product: Array<ProductI> = [
     disk: '512 GB SSD',
     graphics: 'AMD Radeon RX 6600 XT',
     isAvailible: true,
-    price: 3888,
+    price: '3888',
+    type: 'PC',
     image: image5,
+    date: '2020-06-03',
   },
 ];
 

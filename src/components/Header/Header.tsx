@@ -11,12 +11,18 @@ function Header({ location }: WithRouterProps) {
   const localPath = location?.pathname.slice(1);
   return (
     <header className="header">
-      <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/">
-        Main
-      </NavLink>
-      <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/about">
-        About us
-      </NavLink>
+      <div className="linksWrapper">
+        <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/">
+          Main
+        </NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/about">
+          About us
+        </NavLink>
+        <NavLink className={({ isActive }) => (isActive ? 'active' : 'link')} to="/new-card">
+          Add new card
+        </NavLink>
+      </div>
+
       <div className="activePage">Active page: {localPath === '' ? 'main' : localPath}</div>
     </header>
   );

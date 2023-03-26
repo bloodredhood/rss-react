@@ -1,0 +1,14 @@
+.newCardPage {
+  max-width: 1280px;
+  min-height: 100vh;
+  color: #213547;
+  font-weight: bold;
+  background-color: #d4d4d4;
+  display: flex;
+  flex-direction: column;
+}
+
+.formCardsListWrapper {
+  display: flex;
+  flex-direction: row;
+}

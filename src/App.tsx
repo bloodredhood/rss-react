@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Error from './pages/Error/Error';
+import NewCard from './pages/NewCard/NewCard';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<Error />} />
+          <Route path="/new-card" element={<NewCard />} />
         </Routes>
       </div>
     );

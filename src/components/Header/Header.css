@@ -4,10 +4,15 @@
   width: 100%;
   min-width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-weight: bold;
   font-size: 25px;
+}
+
+.linksWrapper {
+  display: flex;
+  height: 90%;
 }
 
 .link {
@@ -17,8 +22,8 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-  height: 95%;
-  width: 150px;
+  height: 100%;
+  width: 200px;
   cursor: pointer;
   user-select: none;
 }
@@ -35,8 +40,8 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
-  height: 95%;
-  width: 150px;
+  height: 100%;
+  width: 200px;
   border-bottom: 3px solid black;
   cursor: pointer;
   user-select: none;
@@ -47,6 +52,5 @@
 }
 
 .activePage {
-  margin-left: 50px;
   color: black;
 }
