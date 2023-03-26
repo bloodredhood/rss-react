@@ -11,7 +11,7 @@ const mockCard: ProductI = {
   disk: 'disk',
   graphics: 'graphics',
   isAvailible: true,
-  price: 2137,
+  price: '2137',
   image: 'image',
 };
 

@@ -15,7 +15,6 @@ class Card extends Component<ProductI> {
             <img src={this.props.image} alt={this.props.name} />
           </div>
           <div className="bodyChar">
-            <div>{this.props.date}</div>
             <div className="charItem">
               <div className="charItemStatic">Processor</div>
               <div className="charItemDynamic">{this.props.processor}</div>
@@ -39,7 +38,6 @@ class Card extends Component<ProductI> {
             <div className={this.props.isAvailible ? 'availible' : 'unavailible'}>
               {this.props.isAvailible ? 'Availible' : 'Unavailible'}
             </div>
-            <div>{this.props.type}</div>
             <div className="price">{this.props.price} zl</div>
           </div>
         </div>

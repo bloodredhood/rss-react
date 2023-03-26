@@ -42,9 +42,7 @@ class Cards extends Component<object, { data: Array<ProductI>; isLoading: boolea
             graphics={el.graphics}
             isAvailible={el.isAvailible}
             price={el.price}
-            type={el.type}
             image={el.image}
-            date={el.date}
           />
         ))}
       </div>
