@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Form from './Form';
+import CardForm from './CardForm';
 
 describe('form renders', () => {
   it('has checkbox', () => {
     render(
-      <Form
+      <CardForm
         newCard={() => {
           throw new Error();
         }}
@@ -15,7 +15,7 @@ describe('form renders', () => {
   });
   it('has button', () => {
     render(
-      <Form
+      <CardForm
         newCard={() => {
           throw new Error();
         }}

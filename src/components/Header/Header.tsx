@@ -1,6 +1,7 @@
-import { withRouter } from '../../HOCs/withRouter';
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+
+import { withRouter } from '../../HOCs/withRouter';
 import './Header.css';
 
 interface WithRouterProps {
