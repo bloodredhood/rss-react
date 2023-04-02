@@ -6,7 +6,7 @@ describe('form renders', () => {
   it('has checkbox', () => {
     render(
       <CardForm
-        newCard={() => {
+        addNewCard={() => {
           throw new Error();
         }}
       />
@@ -16,7 +16,7 @@ describe('form renders', () => {
   it('has button', () => {
     render(
       <CardForm
-        newCard={() => {
+        addNewCard={() => {
           throw new Error();
         }}
       />

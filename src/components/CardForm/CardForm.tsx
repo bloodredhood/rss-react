@@ -7,10 +7,10 @@ import Input from '../Form/Input';
 import './CardForm.css';
 
 interface Props {
-  setNewCard: (card: Card) => void;
+  addNewCard: (card: Card) => void;
 }
 
-const CardForm: React.FC<Props> = ({ setNewCard }) => {
+const CardForm: React.FC<Props> = ({ addNewCard }) => {
   const [image, setImage] = useState<File | undefined>();
   const [preview, setPreview] = useState('');
 
@@ -37,7 +37,7 @@ const CardForm: React.FC<Props> = ({ setNewCard }) => {
     if (data.image[0]) {
       objectUrl = URL.createObjectURL(data.image[0]);
     }
-    setNewCard({ ...data, image: objectUrl });
+    addNewCard({ ...data, image: objectUrl });
     reset();
     setPreview('');
     setImage(undefined);
