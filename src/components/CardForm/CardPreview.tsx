@@ -2,11 +2,11 @@ import React from 'react';
 import './CardPreview.css';
 import { Card } from '../../types';
 
-interface FormCardPropsI {
+interface Props {
   card: Card;
 }
 
-const CardPreview = (props: FormCardPropsI) => {
+const CardPreview = (props: Props) => {
   return (
     <div className="formCard">
       <div className="formCardHead">{props.card.name}</div>
