@@ -1,3 +1,15 @@
+export interface ProductI {
+  id: string;
+  name: string;
+  processor: string;
+  ram: string;
+  disk: string;
+  graphics: string;
+  isAvailible: boolean;
+  price: string;
+  image: string;
+}
+
 interface CardBase {
   type: string;
   name: string;

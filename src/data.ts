@@ -4,19 +4,7 @@ import image3 from './assets/images/MAD_DOG_MD3600-A06.jpg';
 import image4 from './assets/images/ACER_Predator_Orion_3000_PO3-630.jpg';
 import image5 from './assets/images/HP_Victus_TG02-0723NW.jpg';
 
-export interface ProductI {
-  id: string;
-  name: string;
-  processor: string;
-  ram: string;
-  disk: string;
-  graphics: string;
-  isAvailible: boolean;
-  price: string;
-  image: string;
-}
-
-const product: Array<ProductI> = [
+const product = [
   {
     id: '1',
     name: 'MSI MAG Infinite S3 11SI-044EU',

@@ -1,38 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SearchBar.css';
 
-class SearchBar extends Component<object, { inputValue: string }> {
-  constructor(props: object) {
-    super(props);
+const SearchBar = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    this.state = {
-      inputValue: '',
-    };
-  }
-  componentDidMount() {
-    const localStoreVal = window.localStorage.getItem('inputValue');
-    localStoreVal === null
-      ? window.localStorage.setItem('inputValue', this.state.inputValue)
-      : this.setState({ inputValue: localStoreVal });
-  }
-  componentWillUnmount() {
-    window.localStorage.setItem('inputValue', this.state.inputValue);
-  }
-  render() {
-    return (
-      <div className="search">
-        <div className="inputWrapper">
-          <input
-            type="text"
-            placeholder="enter your words"
-            value={this.state.inputValue}
-            onChange={(e) => this.setState({ inputValue: e.target.value })}
-          />
-        </div>
-        <div className="searchButton">search</div>
+  useEffect(() => {
+    if (!isLoaded) {
+      const localStoreVal = window.localStorage.getItem('inputValue');
+      localStoreVal === null
+        ? window.localStorage.setItem('inputValue', inputValue)
+        : setInputValue(localStoreVal);
+      setIsLoaded(true);
+    }
+    return window.localStorage.setItem('inputValue', inputValue);
+  }, [isLoaded, inputValue]);
+
+  return (
+    <div className="search">
+      <div className="inputWrapper">
+        <input
+          type="text"
+          placeholder="enter your words"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
       </div>
-    );
-  }
-}
+      <div className="searchButton">search</div>
+    </div>
+  );
+};
 
 export default SearchBar;

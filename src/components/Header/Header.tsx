@@ -8,7 +8,7 @@ interface WithRouterProps {
   location: ReturnType<typeof useLocation>;
 }
 
-function Header({ location }: WithRouterProps) {
+const Header = ({ location }: WithRouterProps) => {
   const localPath = location?.pathname.slice(1);
   return (
     <header className="header">
@@ -27,6 +27,6 @@ function Header({ location }: WithRouterProps) {
       <div className="activePage">Active page: {localPath === '' ? 'main' : localPath}</div>
     </header>
   );
-}
+};
 
 export default withRouter(Header);

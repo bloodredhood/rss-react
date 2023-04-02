@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react';
+import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import { Card, FormCard } from '../../types';
@@ -11,9 +11,6 @@ interface Props {
 }
 
 const CardForm: React.FC<Props> = ({ addNewCard }) => {
-  const [image, setImage] = useState<File | undefined>();
-  const [preview, setPreview] = useState('');
-
   const methods = useForm<FormCard>();
 
   const {
@@ -23,15 +20,6 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
     formState: { errors },
   } = methods;
 
-  const imagePicker = (event: SyntheticEvent) => {
-    const files = (event.target as HTMLInputElement).files;
-    if (!files) return;
-    const file = files[0];
-    if (file) {
-      setImage(file);
-    }
-  };
-
   const onSubmit = async (data: FormCard) => {
     let objectUrl = '';
     if (data.image[0]) {
@@ -39,18 +27,7 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
     }
     addNewCard({ ...data, image: objectUrl });
     reset();
-    setPreview('');
-    setImage(undefined);
   };
-
-  useEffect(() => {
-    let objectUrl = '';
-    if (image) {
-      objectUrl = URL.createObjectURL(image);
-      setPreview(objectUrl);
-    }
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [image]);
 
   return (
     <FormProvider {...methods}>
@@ -118,11 +95,10 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
           type="file"
           label="Product image"
           name="image"
-          options={{ required: true, onChange: imagePicker }}
+          options={{ required: true }}
           text="must be uploaded"
           role="imageinput"
         />
-        {image && <img className="imagePreview" src={preview} />}
         <div className="checkboxWrapper">
           <Input
             label="check all fields"
