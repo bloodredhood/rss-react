@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import { Card, FormCard } from '../../types';
@@ -12,7 +12,7 @@ interface Props {
 
 const CardForm: React.FC<Props> = ({ addNewCard }) => {
   const methods = useForm<FormCard>();
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
     reset,
@@ -27,6 +27,10 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
     }
     addNewCard({ ...data, image: objectUrl });
     reset();
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+    }, 1500);
   };
 
   return (
@@ -113,6 +117,7 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
         <button className="submitButton inputItem" type="submit" role="button">
           submit
         </button>
+        {isSubmitted && <p style={{ color: 'green' }}>Submitted</p>}
       </form>
     </FormProvider>
   );
