@@ -1,0 +1,89 @@
+.newCardForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.newCardForm h2 {
+  margin: 5px 0px;
+}
+
+.imagePreview {
+  max-width: 80%;
+}
+
+.formError {
+  color: red;
+}
+
+.textInput {
+  height: 30px;
+  width: 250px;
+  box-sizing: border-box;
+  border: 1px #d4d4d4 solid;
+}
+
+.checkboxesWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkboxesWrapper input{
+  margin-right: 10px;
+}
+
+.dateInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.largerMB {
+  margin-bottom: 50px;
+}
+
+.submitButton {
+  background-color: #004d99;
+  color: white;
+  font-size: 23px;
+  padding: 5px 50px;
+  border-radius: 3px;
+}
+
+.date {
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px #d4d4d4 solid;
+}
+
+.switch {
+  display: flex;
+  justify-content: space-around;
+}
+
+.green {
+  background-color: rgb(104, 175, 104);
+  border-radius: 3px;
+  padding: 2px 5px 2px 0px;
+  font-weight: 500;
+}
+
+.red {
+  background-color: rgb(255, 115, 115);
+  border-radius: 3px;
+  padding: 2px 5px 2px 0px;
+  font-weight: 500;
+}
+
+.checkboxWrapper {
+  display: flex;
+}
+
+.checkbox {
+  margin-left: 10px;
+}

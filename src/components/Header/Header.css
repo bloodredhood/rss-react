@@ -1,0 +1,56 @@
+.header {
+  height: 70px;
+  background-color: gold;
+  width: 100%;
+  min-width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.linksWrapper {
+  display: flex;
+  height: 90%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  height: 100%;
+  width: 200px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  height: 100%;
+  width: 200px;
+  border-bottom: 3px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+
+.active:hover {
+  color: black;
+}
+
+.activePage {
+  color: black;
+}
