@@ -7,7 +7,7 @@ const Card = ({ id, name, status, species, gender, image, url }: Character) => {
   const [isModalShow, setIsModalShow] = useState(false);
   return (
     <>
-      <div className="card" onClick={() => setIsModalShow(true)}>
+      <div data-testid="card" className="card" onClick={() => setIsModalShow(true)}>
         <div>
           <img src={image} alt={name} />
         </div>

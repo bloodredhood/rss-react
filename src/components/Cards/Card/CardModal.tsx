@@ -3,7 +3,7 @@ import './CardModal.css';
 import cross from '../../../assets/images/redcross.png';
 
 interface Props {
-  id: string;
+  id: number;
   name: string;
   status: string;
   species: string;

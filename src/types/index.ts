@@ -1,15 +1,3 @@
-export interface ProductI {
-  id: string;
-  name: string;
-  processor: string;
-  ram: string;
-  disk: string;
-  graphics: string;
-  isAvailible: boolean;
-  price: string;
-  image: string;
-}
-
 interface CardBase {
   type: string;
   name: string;
@@ -27,7 +15,7 @@ export interface Card extends CardBase {
 }
 
 export interface Character {
-  id: string;
+  id: number;
   name: string;
   status: string;
   species: string;

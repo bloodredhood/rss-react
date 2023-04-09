@@ -4,7 +4,13 @@ import React from 'react';
 import SearchBar from './SearchBar';
 
 it('renders with placeholder', () => {
-  render(<SearchBar />);
-  const input = screen.queryByPlaceholderText('enter your words');
+  render(
+    <SearchBar
+      query={function (): void {
+        throw new Error('invalid function');
+      }}
+    />
+  );
+  const input = screen.queryByPlaceholderText("enter character's name");
   expect(input).toBeInTheDocument();
 });
