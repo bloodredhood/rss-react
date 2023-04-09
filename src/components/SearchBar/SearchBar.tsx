@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FormEvent } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [isLoaded, setIsLoaded] = useState(false);
+interface Props {
+  query: (string: string) => void;
+}
+
+const SearchBar = ({ query }: Props) => {
+  const [inputValue, setInputValue] = useState(localStorage.getItem('inputValue') || '');
 
   useEffect(() => {
-    if (!isLoaded) {
-      const localStoreVal = window.localStorage.getItem('inputValue');
-      localStoreVal === null
-        ? window.localStorage.setItem('inputValue', inputValue)
-        : setInputValue(localStoreVal);
-      setIsLoaded(true);
-    }
-    return window.localStorage.setItem('inputValue', inputValue);
-  }, [isLoaded, inputValue]);
+    return () => localStorage.setItem('inputValue', inputValue || '');
+  }, [inputValue]);
+
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    query(inputValue);
+  };
 
   return (
-    <div className="search">
+    <form className="search" onSubmit={onSubmit}>
       <div className="inputWrapper">
         <input
-          type="text"
-          placeholder="enter your words"
-          value={inputValue}
+          type="search"
+          placeholder="enter character's name"
+          defaultValue={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
       </div>
-      <div className="searchButton">search</div>
-    </div>
+    </form>
   );
 };
 

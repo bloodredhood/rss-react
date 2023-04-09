@@ -1,54 +1,25 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React from 'react';
 import Card from './Card/Card';
-import { GridLoader } from 'react-spinners';
 import './Cards.css';
 import { Character } from '../../types';
 
-const override: CSSProperties = {
-  marginTop: '30vh',
-};
+interface Props {
+  data: Array<Character>;
+}
 
-const Cards = () => {
-  const [state, setState] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (!isLoading) {
-      setIsLoading(true);
-    }
-  }, [isLoading]);
-
-  return state.length === 0 ? (
-    <GridLoader
-      color="#004d99"
-      loading={isLoading}
-      cssOverride={override}
-      size={30}
-      aria-label="Loading Spinner"
-      data-testid="loader"
-    />
-  ) : (
+const Cards = ({ data }: Props) => {
+  return (
     <div className="cardsWrap" data-testid="cards">
-      {state.map((el: Character) => (
+      {data.map((el: Character) => (
         <Card
-          key={`got${el.id}`}
+          key={`rim${el.id}`}
           id={el.id}
-          url={el.url}
           name={el.name}
+          status={el.status}
+          species={el.species}
           gender={el.gender}
-          culture={el.culture}
-          born={el.born}
-          died={el.died}
-          titles={el.titles}
-          aliases={el.aliases}
-          father={el.father}
-          mother={el.mother}
-          spouse={el.spouse}
-          allegiances={el.allegiances}
-          books={el.books}
-          povBooks={el.povBooks}
-          tvSeries={el.tvSeries}
-          playedBy={el.playedBy}
+          image={el.image}
+          url={el.url}
         />
       ))}
     </div>
