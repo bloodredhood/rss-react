@@ -1,15 +1,10 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-
-import { withRouter } from '../../HOCs/withRouter';
 import './Header.css';
 
-interface WithRouterProps {
-  location: ReturnType<typeof useLocation>;
-}
-
-const Header = ({ location }: WithRouterProps) => {
-  const localPath = location?.pathname.slice(1);
+const Header = () => {
+  const { pathname } = useLocation();
+  const localPath = pathname.slice(1);
   return (
     <header className="header">
       <div className="linksWrapper">
@@ -29,4 +24,4 @@ const Header = ({ location }: WithRouterProps) => {
   );
 };
 
-export default withRouter(Header);
+export default Header;
