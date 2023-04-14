@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Error from './pages/Error/Error';
-import NewCard from './pages/NewCard/NewCard';
+import NewCard from './pages/NewCard/FormPage';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 

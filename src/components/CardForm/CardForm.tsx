@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { Card, FormCard } from '../../types';
+import { formPageSlice } from '../../store/reducers/formPageSlice';
+import { useAppDispatch } from '../../hooks/redux';
+
+import { FormCard } from '../../types';
 import Input from '../Form/Input';
 
 import './CardForm.css';
 
-interface Props {
-  addNewCard: (card: Card) => void;
-}
-
-const CardForm: React.FC<Props> = ({ addNewCard }) => {
+const CardForm: React.FC = () => {
   const methods = useForm<FormCard>();
+
+  const { setCards } = formPageSlice.actions;
+  const dispatch = useAppDispatch();
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const {
     register,
@@ -25,7 +28,7 @@ const CardForm: React.FC<Props> = ({ addNewCard }) => {
     if (data.image[0]) {
       objectUrl = URL.createObjectURL(data.image[0]);
     }
-    addNewCard({ ...data, image: objectUrl });
+    dispatch(setCards({ ...data, image: objectUrl }));
     reset();
     setIsSubmitted(true);
     setTimeout(() => {

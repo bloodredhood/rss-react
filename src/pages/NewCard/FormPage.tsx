@@ -1,19 +1,15 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import CardForm from '../../components/CardForm/CardForm';
 import CardPreview from '../../components/CardForm/CardPreview';
-import { Card } from '../../types';
-import './NewCard.css';
+import './FormPage.css';
+import { useAppSelector } from '../../hooks/redux';
 
-const NewCard: FC = () => {
-  const [cards, setCards] = useState<Array<Card>>([]);
-
-  const addNewCard = (card: Card): void => {
-    setCards([...cards, card]);
-  };
+const FormPage: FC = () => {
+  const { cards } = useAppSelector((state) => state.formPageReducer);
 
   return (
     <div className="newCardPage">
-      <CardForm addNewCard={addNewCard} />
+      <CardForm />
       <div className="formCardsListWrapper">
         {cards.length !== 0 ? cards.map((card, idx) => <CardPreview key={idx} card={card} />) : ''}
       </div>
@@ -21,4 +17,4 @@ const NewCard: FC = () => {
   );
 };
 
-export default NewCard;
+export default FormPage;
