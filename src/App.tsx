@@ -6,6 +6,8 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Error from './pages/Error/Error';
 import NewCard from './pages/NewCard/NewCard';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const App: FC = () => {
   return (
@@ -24,7 +26,9 @@ const App: FC = () => {
 const RouterWrap: FC = () => {
   return (
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   );
 };

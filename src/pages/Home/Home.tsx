@@ -1,34 +1,18 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import Cards from '../../components/Cards/Cards';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { GridLoader } from 'react-spinners';
-import { Api } from '../../API/api';
-import { Character } from 'types';
 import './Home.css';
+import { useAppSelector } from '../../hooks/redux';
+import { useFetchCharsQuery } from '../../store/reducers/apiSlice';
 
 const Home: FC = () => {
-  const [queryStr, setQueryStr] = useState(localStorage.getItem('inputValue') || '');
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<Array<Character>>([]);
-
-  const query = (string: string) => {
-    setQueryStr(string);
-    setData([]);
-  };
-
-  useEffect(() => {
-    const loadData = async () => {
-      setIsLoading(true);
-      const data = await Api.get(queryStr);
-      setData(data.results);
-      setIsLoading(false);
-    };
-    loadData();
-  }, [queryStr]);
+  const { inputValue } = useAppSelector((state) => state.searchReducer);
+  const { data, isError, isLoading } = useFetchCharsQuery(inputValue);
 
   return (
     <div className="home">
-      <SearchBar query={query} />
+      <SearchBar />
       {isLoading && (
         <GridLoader
           color="#004d99"
@@ -41,7 +25,7 @@ const Home: FC = () => {
           data-testid="loader"
         />
       )}
-      {data ? <Cards data={data} /> : <h1>characters not found</h1>}
+      {data && !isError ? <Cards data={data.results} /> : <h1>characters not found</h1>}
     </div>
   );
 };

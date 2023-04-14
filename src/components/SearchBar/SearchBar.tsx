@@ -1,20 +1,17 @@
-import React, { useEffect, useState, FormEvent } from 'react';
+import React, { useState, FormEvent } from 'react';
+import { searchSlice } from '../../store/reducers/searchSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import './SearchBar.css';
 
-interface Props {
-  query: (string: string) => void;
-}
-
-const SearchBar = ({ query }: Props) => {
-  const [inputValue, setInputValue] = useState(localStorage.getItem('inputValue') || '');
-
-  useEffect(() => {
-    return () => localStorage.setItem('inputValue', inputValue || '');
-  }, [inputValue]);
+const SearchBar = () => {
+  const { inputValue } = useAppSelector((state) => state.searchReducer);
+  const [value, setValue] = useState(inputValue);
+  const { setInputValue } = searchSlice.actions;
+  const dispatch = useAppDispatch();
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    query(inputValue);
+    dispatch(setInputValue(value));
   };
 
   return (
@@ -24,7 +21,7 @@ const SearchBar = ({ query }: Props) => {
           type="search"
           placeholder="enter character's name"
           defaultValue={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
       </div>
     </form>
