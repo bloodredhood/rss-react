@@ -1,0 +1,59 @@
+.formCard {
+  height: 500px;
+  width: 320px;
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+.formCardHead {
+  font-size: 25px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.formCardVerify {
+  color: rgb(94, 94, 94);
+  font-size: 15px;
+}
+
+.formCardBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.formCardImageWrapper {
+  margin-bottom:15px;
+}
+
+.formCardImageWrapper img{
+  max-width: 100%;
+}
+
+.formCardFootWrapper {
+  width: 100%;
+}
+
+.formCardFoot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formAvailible {
+  font-size: 17px;
+  font-weight: bold;
+  color: green;
+}
+
+.formUnavailible {
+  font-size: 17px;
+  font-weight: bold;
+  color: red;
+}
